@@ -1,0 +1,312 @@
+/* ── Layout ─────────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  background: #0f0f1a;
+  color: #e2e8f0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Nav ──────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  background: #13131f;
+  border-bottom: 1px solid #1e1e30;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-brand {
+  font-size: 17px;
+  font-weight: 700;
+  color: #a78bfa;
+  letter-spacing: -0.3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-link:hover { color: #e2e8f0; background: #1e1e30; }
+.nav-link.active { color: #a78bfa; background: rgba(167,139,250,0.12); }
+
+/* ── Card ─────────────────────────────────────────────────── */
+.card {
+  background: #13131f;
+  border: 1px solid #1e1e30;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  margin: 0 0 16px;
+}
+
+/* ── Ring charts ──────────────────────────────────────────── */
+.rings-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ring-chart { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ring-label { font-size: 12px; color: #64748b; margin: 0; text-transform: uppercase; letter-spacing: 0.4px; }
+
+/* ── Meal Entry ───────────────────────────────────────────── */
+.meal-type-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+
+.input-row { display: flex; gap: 10px; align-items: flex-start; }
+
+.meal-input {
+  flex: 1;
+  background: #0f0f1a;
+  border: 1px solid #1e1e30;
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 15px;
+  padding: 10px 14px;
+  resize: none;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+
+.meal-input:focus { outline: none; border-color: #a78bfa; }
+.meal-input::placeholder { color: #334155; }
+
+/* ── Buttons ──────────────────────────────────────────────── */
+.btn-primary {
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.btn-primary:hover:not(:disabled) { background: #6d28d9; }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-secondary {
+  background: #1e1e30;
+  color: #a78bfa;
+  border: 1px solid #2d2d48;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover:not(:disabled) { background: #26263d; }
+.btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-add {
+  margin-top: 10px;
+  background: #059669;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-add:hover { background: #047857; }
+
+.btn-delete {
+  background: transparent;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.btn-delete:hover { color: #f87171; background: rgba(248,113,113,0.1); }
+
+/* ── Pills ────────────────────────────────────────────────── */
+.pill {
+  background: #1e1e30;
+  border: 1px solid #2d2d48;
+  color: #94a3b8;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.pill:hover { border-color: #a78bfa; color: #a78bfa; }
+.pill-active { background: rgba(167,139,250,0.15); border-color: #a78bfa; color: #a78bfa; }
+
+/* ── Preview ──────────────────────────────────────────────── */
+.preview {
+  margin-top: 14px;
+  background: #0f0f1a;
+  border: 1px solid #1e1e30;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.preview-macros {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a78bfa;
+  margin-bottom: 8px;
+}
+
+.preview-items { list-style: none; margin: 0 0 4px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.preview-items li { font-size: 13px; color: #64748b; }
+
+/* ── Meal list ────────────────────────────────────────────── */
+.meal-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+
+.meal-item {
+  background: #0f0f1a;
+  border: 1px solid #1e1e30;
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.meal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.meal-type-badge { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
+.meal-kcal { font-size: 14px; font-weight: 600; color: #e2e8f0; margin-left: auto; }
+.meal-desc { font-size: 14px; color: #94a3b8; margin: 0 0 6px; }
+.meal-macros { display: flex; gap: 12px; font-size: 12px; color: #475569; }
+
+/* ── AI Coach ─────────────────────────────────────────────── */
+.coach-card { border-color: rgba(167,139,250,0.2); }
+.coach-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.coach-icon { font-size: 20px; }
+
+.coach-tip {
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+  padding: 12px;
+  background: rgba(167,139,250,0.06);
+  border-radius: 8px;
+  border-left: 3px solid #7c3aed;
+}
+
+/* ── History ──────────────────────────────────────────────── */
+.avg-grid { display: flex; flex-direction: column; gap: 14px; }
+.avg-item { display: flex; flex-direction: column; gap: 6px; }
+.avg-label-row { display: flex; justify-content: space-between; font-size: 13px; color: #94a3b8; }
+.bar-bg { height: 6px; background: #1e1e30; border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+
+.history-day-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.history-date { font-size: 15px; font-weight: 600; color: #e2e8f0; }
+.history-kcal { font-size: 14px; color: #f59e0b; font-weight: 600; }
+.history-macros { display: flex; gap: 14px; font-size: 13px; color: #64748b; margin-bottom: 8px; }
+.history-meals { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.history-meals li { font-size: 13px; color: #475569; }
+
+/* ── Settings ─────────────────────────────────────────────── */
+.toggle-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+
+.field { margin-top: 12px; }
+.field-label { display: block; font-size: 13px; color: #64748b; margin-bottom: 6px; font-weight: 500; }
+
+.field-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #0f0f1a;
+  border: 1px solid #1e1e30;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 14px;
+  padding: 9px 12px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+
+.field-input:focus { outline: none; border-color: #a78bfa; }
+
+.slider-field { margin-bottom: 18px; }
+.slider-label-row { display: flex; justify-content: space-between; font-size: 13px; color: #94a3b8; margin-bottom: 8px; }
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #1e1e30;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--thumb-color, #7c3aed);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+/* ── Utility ──────────────────────────────────────────────── */
+.hint { font-size: 12px; color: #475569; margin: 6px 0 0; }
+.error { font-size: 13px; color: #f87171; margin: 8px 0 0; }
+.empty-state { text-align: center; color: #475569; font-size: 14px; }
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 16px;
+  color: #475569;
+}
