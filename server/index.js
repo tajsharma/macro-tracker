@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import db from './db.js';
@@ -48,6 +49,30 @@ app.put('/api/settings', (req, res) => {
   db.prepare("INSERT INTO settings (key, value) VALUES ('config', ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value")
     .run(JSON.stringify(req.body));
   res.json({ ok: true });
+});
+
+// ── Anthropic proxy ──────────────────────────────────────────
+
+app.post('/v1/messages', async (req, res) => {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey || apiKey === 'your_key_here') {
+    return res.status(500).json({ error: 'ANTHROPIC_API_KEY not set in .env' });
+  }
+  try {
+    const upstream = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify(req.body),
+    });
+    const data = await upstream.json();
+    res.status(upstream.status).json(data);
+  } catch (err) {
+    res.status(502).json({ error: err.message });
+  }
 });
 
 // ── Start ─────────────────────────────────────────────────────
